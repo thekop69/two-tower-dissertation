@@ -1,0 +1,26 @@
+__dependency__: configs/dual-encoder.yaml, configs/LF-AmazonTitles-131K/dataset.yaml
+expname: dist-de-hnm_decoupled-softmax_exp
+desc: "Training dist-de-hnm (distributed dual-encoder with hard negative mining) with decoupled-softmax loss"
+
+# Network and loss parameters
+net: dist-de-hnm
+norm_embs: True
+tau: 0.05
+neg_type: cbmns # sample negatives from shortlist
+hard_neg_start: 20
+hard_neg_topk: 100
+num_neg_samples: 40
+num_pos_samples: 40
+mixing_alpha: 0.4
+mixing_beta: 0.4
+use_fifo_queue: True # Use only with cbns / cbmns
+fifo_queue_size: 2048 # Set to 2*bsz
+
+loss_criterion: decoupled-softmax
+loss_sample: True
+
+# Training parameters
+bsz: 1024
+gc_bsz: 4096
+lr: 2.e-4
+dropout: 0

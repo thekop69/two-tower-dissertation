@@ -1,0 +1,8 @@
+Results
+Datasets
+__pycache__
+wandb
+temp*
+.vscode
+.venv
+.DS_Store
